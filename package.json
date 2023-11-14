@@ -1,7 +1,7 @@
 {
-  "name": "zdesk",
+  "name": "nodemysql",
   "version": "1.0.0",
-  "description": "Zuridesk backend",
+  "description": "backend",
   "main": "server.js",
   "type": "module",
   "scripts": {
