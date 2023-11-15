@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 
 import connectDB from '../config/db.js';
 
-const sequelize = connectDB();
+const sequelize = await connectDB();
 
  const User = sequelize.define(
   'User',
@@ -50,6 +50,8 @@ const sequelize = connectDB();
     }
   );
   
+  User.sync();
+
   User.prototype.matchPassword = async function (enteredPassword) {
     try {
       return await bcrypt.compare(enteredPassword, this.password);
@@ -57,5 +59,5 @@ const sequelize = connectDB();
       throw new Error(error);
     }
   };
-  
+
   export default User;

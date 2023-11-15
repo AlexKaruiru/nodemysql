@@ -1,10 +1,13 @@
 import Sequelize from 'sequelize';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const connectDB = async () => {
   try {
     const sequelize = new Sequelize(process.env.MYSQL_URI, {
       dialect: 'mysql',
-      logging: false,
+      logging: false
     });
     await sequelize.authenticate();
     console.log(`MySQL connected: ${sequelize.config.host}`.underline.bold.cyan);
